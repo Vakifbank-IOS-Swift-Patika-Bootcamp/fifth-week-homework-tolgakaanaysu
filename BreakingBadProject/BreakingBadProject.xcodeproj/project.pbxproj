@@ -20,9 +20,9 @@
 		78330BF0292D641A00153DCC /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78330BEF292D641A00153DCC /* QuoteModel.swift */; };
 		78330BF2292D6E4100153DCC /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78330BF1292D6E4100153DCC /* WebViewVC.swift */; };
 		78330BF5292E57AB00153DCC /* CharacterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78330BF4292E57AB00153DCC /* CharacterListCell.swift */; };
-		78330BF8292E76E100153DCC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78330BF7292E76E100153DCC /* Kingfisher */; };
-		78561120292FB02900D01F24 /* MaterialActivityIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 7856111F292FB02900D01F24 /* MaterialActivityIndicator */; };
-		78561123292FB09A00D01F24 /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 78561122292FB09A00D01F24 /* SwiftAlertView */; };
+		783A38E12933EE8D0048F76F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 783A38E02933EE8D0048F76F /* Kingfisher */; };
+		783A38E42933EE980048F76F /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 783A38E32933EE980048F76F /* SwiftAlertView */; };
+		783A38E72933EEA50048F76F /* MaterialActivityIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 783A38E62933EEA50048F76F /* MaterialActivityIndicator */; };
 		78561125292FC40F00D01F24 /* CharacterDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78561124292FC40F00D01F24 /* CharacterDetailsVC.swift */; };
 		785611272930306900D01F24 /* QuotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785611262930306900D01F24 /* QuotesVC.swift */; };
 		7856112A293047E900D01F24 /* EpisodeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78561128293047E900D01F24 /* EpisodeListCell.swift */; };
@@ -62,9 +62,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78561123292FB09A00D01F24 /* SwiftAlertView in Frameworks */,
-				78561120292FB02900D01F24 /* MaterialActivityIndicator in Frameworks */,
-				78330BF8292E76E100153DCC /* Kingfisher in Frameworks */,
+				783A38E42933EE980048F76F /* SwiftAlertView in Frameworks */,
+				783A38E72933EEA50048F76F /* MaterialActivityIndicator in Frameworks */,
+				783A38E12933EE8D0048F76F /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,9 +172,9 @@
 			);
 			name = BreakingBadProject;
 			packageProductDependencies = (
-				78330BF7292E76E100153DCC /* Kingfisher */,
-				7856111F292FB02900D01F24 /* MaterialActivityIndicator */,
-				78561122292FB09A00D01F24 /* SwiftAlertView */,
+				783A38E02933EE8D0048F76F /* Kingfisher */,
+				783A38E32933EE980048F76F /* SwiftAlertView */,
+				783A38E62933EEA50048F76F /* MaterialActivityIndicator */,
 			);
 			productName = BreakingBadProject;
 			productReference = 78330BCC292D2F5700153DCC /* BreakingBadProject.app */;
@@ -205,9 +205,9 @@
 			);
 			mainGroup = 78330BC3292D2F5700153DCC;
 			packageReferences = (
-				78330BF6292E76E100153DCC /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				7856111E292FB02900D01F24 /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */,
-				78561121292FB09A00D01F24 /* XCRemoteSwiftPackageReference "SwiftAlertView" */,
+				783A38DF2933EE8D0048F76F /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				783A38E22933EE980048F76F /* XCRemoteSwiftPackageReference "SwiftAlertView" */,
+				783A38E52933EEA50048F76F /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */,
 			);
 			productRefGroup = 78330BCD292D2F5700153DCC /* Products */;
 			projectDirPath = "";
@@ -478,7 +478,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		78330BF6292E76E100153DCC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		783A38DF2933EE8D0048F76F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -486,7 +486,15 @@
 				kind = branch;
 			};
 		};
-		7856111E292FB02900D01F24 /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */ = {
+		783A38E22933EE980048F76F /* XCRemoteSwiftPackageReference "SwiftAlertView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dinhquan/SwiftAlertView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		783A38E52933EEA50048F76F /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nspavlo/MaterialActivityIndicator.git";
 			requirement = {
@@ -494,31 +502,23 @@
 				kind = branch;
 			};
 		};
-		78561121292FB09A00D01F24 /* XCRemoteSwiftPackageReference "SwiftAlertView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dinhquan/SwiftAlertView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		78330BF7292E76E100153DCC /* Kingfisher */ = {
+		783A38E02933EE8D0048F76F /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 78330BF6292E76E100153DCC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 783A38DF2933EE8D0048F76F /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		7856111F292FB02900D01F24 /* MaterialActivityIndicator */ = {
+		783A38E32933EE980048F76F /* SwiftAlertView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7856111E292FB02900D01F24 /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */;
-			productName = MaterialActivityIndicator;
-		};
-		78561122292FB09A00D01F24 /* SwiftAlertView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 78561121292FB09A00D01F24 /* XCRemoteSwiftPackageReference "SwiftAlertView" */;
+			package = 783A38E22933EE980048F76F /* XCRemoteSwiftPackageReference "SwiftAlertView" */;
 			productName = SwiftAlertView;
+		};
+		783A38E62933EEA50048F76F /* MaterialActivityIndicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 783A38E52933EEA50048F76F /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */;
+			productName = MaterialActivityIndicator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
