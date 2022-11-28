@@ -7,14 +7,38 @@
 
 import UIKit
 
-class AddNoteButtonView: UIView {
+protocol AddNoteButtonDelegate: AnyObject {
+    func presentAddEditNoteVC()
+}
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+
+final class AddNoteButtonView: UIView {
+
+    //MARK: - Property
+    weak var delegate: AddNoteButtonDelegate?
+    
+    //MARK: - initilize
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        customInit()
     }
-    */
-
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        customInit()
+    }
+    
+    private func customInit() {
+        let nib = UINib(nibName: "AddNoteButtonView", bundle: nil)
+        if let view = nib.instantiate(withOwner: self).first as? UIView {
+            addSubview(view)
+            view.frame = self.bounds
+        }
+    }
+    
+    //MARK: - IBActions
+    @IBAction func addButtonClicked(_ sender: Any) {
+        print("Button pressed")
+        delegate?.presentAddEditNoteVC()
+    }
 }

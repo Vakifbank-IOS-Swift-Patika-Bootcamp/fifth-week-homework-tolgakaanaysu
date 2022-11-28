@@ -9,15 +9,11 @@ import UIKit
 
 class NotesListCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet private weak var seasonLabel: UILabel!
+    @IBOutlet private weak var episodeLabel: UILabel!
+    
+    func configure(note: Notes){
+        seasonLabel.text = note.season
+        episodeLabel.text = note.episode
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
