@@ -312,7 +312,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fKQ-1m-EnN">
-                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
+                                <rect key="frame" x="0.0" y="143" width="390" height="618"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="notesCell" rowHeight="97" id="Cgu-db-i2R" customClass="NotesListCell" customModule="BreakingBadProject" customModuleProvider="target">
@@ -394,39 +394,57 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACp-WZ-Pgp">
-                                <rect key="frame" x="100" y="730" width="190" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="ADD">
-                                    <fontDescription key="titleFontDescription" name=".SFUI-Semibold" family=".AppleSystemUIFont" pointSize="22"/>
-                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="addButtonClicked:" destination="UHc-Ne-Gc1" eventType="touchUpInside" id="Z9B-s4-GGC"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-lA-NhN">
+                                <rect key="frame" x="32" y="730" width="314.66666666666669" height="38.666666666666629"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACp-WZ-Pgp">
+                                        <rect key="frame" x="0.0" y="0.0" width="132.33333333333334" height="38.666666666666664"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="ADD">
+                                            <fontDescription key="titleFontDescription" name=".SFUI-Semibold" family=".AppleSystemUIFont" pointSize="22"/>
+                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addButtonClicked:" destination="UHc-Ne-Gc1" eventType="touchUpInside" id="Z9B-s4-GGC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="wCZ-Gd-37A">
+                                        <rect key="frame" x="182.33333333333331" y="0.0" width="132.33333333333331" height="38.666666666666664"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="EDIT">
+                                            <fontDescription key="titleFontDescription" name=".SFUI-Semibold" family=".AppleSystemUIFont" pointSize="22"/>
+                                            <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addButtonClicked:" destination="UHc-Ne-Gc1" eventType="touchUpInside" id="Nrc-Z0-oLO"/>
+                                            <action selector="editButtonClicked:" destination="UHc-Ne-Gc1" eventType="touchUpInside" id="qPv-Oy-wCm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="O5E-Dz-udr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="EQd-lA-NhN" firstAttribute="top" secondItem="sxk-hh-mUq" secondAttribute="bottom" constant="20" id="3cT-0f-H8h"/>
+                            <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="EQd-lA-NhN" secondAttribute="trailing" constant="32" id="5x3-16-kgd"/>
                             <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="aRG-s8-cgq" secondAttribute="trailing" constant="32" id="7eY-Rr-0nB"/>
+                            <constraint firstItem="EQd-lA-NhN" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="32" id="F0Q-Tr-tAv"/>
                             <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="sxk-hh-mUq" secondAttribute="trailing" constant="32" id="Gsg-kM-wtk"/>
-                            <constraint firstItem="O5E-Dz-udr" firstAttribute="bottom" secondItem="ACp-WZ-Pgp" secondAttribute="bottom" constant="45" id="IHM-dV-zky"/>
                             <constraint firstItem="5m4-z6-ZUd" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="32" id="Kbr-ro-afR"/>
                             <constraint firstItem="sxk-hh-mUq" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="32" id="OMV-tD-QOG"/>
-                            <constraint firstItem="ACp-WZ-Pgp" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="100" id="PnA-Mk-gRN"/>
                             <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="5m4-z6-ZUd" secondAttribute="trailing" constant="32" id="TOo-BR-7hW"/>
                             <constraint firstItem="O5E-Dz-udr" firstAttribute="bottom" secondItem="sxk-hh-mUq" secondAttribute="bottom" constant="100" id="ULl-TL-AuB"/>
                             <constraint firstItem="aRG-s8-cgq" firstAttribute="top" secondItem="5m4-z6-ZUd" secondAttribute="bottom" constant="32" id="XcT-sd-Nvu"/>
                             <constraint firstItem="aRG-s8-cgq" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="32" id="aX0-5Q-Dxl"/>
-                            <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="ACp-WZ-Pgp" secondAttribute="trailing" constant="100" id="mAz-Rp-AbA"/>
                             <constraint firstItem="sxk-hh-mUq" firstAttribute="top" secondItem="aRG-s8-cgq" secondAttribute="bottom" constant="32" id="mXS-tt-mW3"/>
                             <constraint firstItem="5m4-z6-ZUd" firstAttribute="top" secondItem="O5E-Dz-udr" secondAttribute="top" constant="32" id="mhZ-hI-OR4"/>
-                            <constraint firstItem="ACp-WZ-Pgp" firstAttribute="top" secondItem="sxk-hh-mUq" secondAttribute="bottom" constant="20" id="mha-Jc-agm"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="ACp-WZ-Pgp" id="j0w-NI-y5d"/>
+                        <outlet property="editButton" destination="wCZ-Gd-37A" id="Evq-2L-xD6"/>
                         <outlet property="episodeTextField" destination="aRG-s8-cgq" id="eYp-Iy-wds"/>
                         <outlet property="noteTextView" destination="sxk-hh-mUq" id="tHD-XN-NYQ"/>
                         <outlet property="seasonTextField" destination="5m4-z6-ZUd" id="ofz-Cz-qjR"/>
@@ -548,6 +566,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
