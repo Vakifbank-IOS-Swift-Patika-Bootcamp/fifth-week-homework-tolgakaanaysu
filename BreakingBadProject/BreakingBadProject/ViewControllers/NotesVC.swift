@@ -27,8 +27,8 @@ final class NotesVC: BaseViewController {
     //MARK: - Lifecycle
     override func loadView() {
         super.loadView()
-        let size = notesTableView.frame.size
-        let frame = CGRect(x: size.width / 2 - 10, y: size.height + 10, width: 56, height: 56)
+        let frame = CGRect(x: notesTableView.frame.size.width / 2 - 10,
+                           y: view.frame.height - 175, width: 56, height: 56)
         let newNoteView = AddNoteButtonView(frame: frame)
         newNoteView.delegate = self
         view.addSubview(newNoteView)
@@ -41,7 +41,23 @@ final class NotesVC: BaseViewController {
     
     //MARK: - Private Methods
     private func loadNotes(){
-        self.notes = CoreDataManager.shared.getNotes()
+        CoreDataManager.shared.getNotes {[weak self] notes, error in
+            guard let self = self else { return }
+            
+            guard let error = error else {
+                self.notes = notes
+                return
+            }
+            self.showErrorAlert(message: error.message, completion: {})
+        }
+    }
+    
+    private func prepare(note: Notes? = nil, viewType: AddEditNoteViewType){
+        guard let addEditVC = storyboard?.instantiateViewController(withIdentifier: "AddEditNoteVC_ID") as? AddEditNoteVC else { return }
+        addEditVC.delegate = self
+        addEditVC.viewType = viewType
+        addEditVC.note = note
+        present(addEditVC, animated: true)
     }
     
 }
@@ -52,32 +68,49 @@ extension NotesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "notesCell") as? NotesListCell
-        else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "notesCell") as? NotesListCell else { return UITableViewCell() }
+        
         let note = notes[indexPath.row]
         cell.configure(note: note)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let addEditVC = storyboard?.instantiateViewController(withIdentifier: "AddEditNoteVC_ID") as? AddEditNoteVC
-        else { return  }
         let note = notes[indexPath.row]
-        addEditVC.note = note
-        addEditVC.isEditable = false
-        addEditVC.delegate = self
-        present(addEditVC, animated: true)
+        prepare(note: note, viewType: .preview)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let note = notes[indexPath.row]
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "DELETE") { _, _, _ in
+            CoreDataManager.shared.deleteNote(note: note) { [weak self] error, success in
+                guard let self = self else { return }
+                guard let error = error else {
+                    self.showSuccesAlert(message: success!.message) {}
+                    return
+                }
+                self.showErrorAlert(message: error.message) {}
+                self.loadNotes()
+            }
+        }
+            
+        let editAction = UIContextualAction(style: .normal, title: "EDİT", handler: { [weak self]_, view,_ in
+            guard let self = self else { return }
+            view.backgroundColor = .systemYellow
+            self.prepare(note: note, viewType: .edit)
+        })
+        editAction.backgroundColor = .systemYellow
+        
+        
+        return UISwipeActionsConfiguration(actions: [editAction,deleteAction])
     }
 }
 
 //MARK: - AddNoteButtonDelegate
 extension NotesVC: AddNoteButtonDelegate {
     func presentAddEditNoteVC() {
-        guard let addEditVC = storyboard?.instantiateViewController(withIdentifier: "AddEditNoteVC_ID") as? AddEditNoteVC
-        else { return  }
-        addEditVC.delegate = self
-        present(addEditVC, animated: true)
-        
+        prepare(viewType: .save)
     }
 }
 
