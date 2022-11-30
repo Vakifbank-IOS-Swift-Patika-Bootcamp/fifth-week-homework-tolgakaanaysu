@@ -4,5 +4,6 @@
         <attribute name="episode" optional="YES" attributeType="String"/>
         <attribute name="season" optional="YES" attributeType="String"/>
         <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
 </model>

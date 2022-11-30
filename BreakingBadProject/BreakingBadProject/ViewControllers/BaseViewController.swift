@@ -38,4 +38,34 @@ class BaseViewController: UIViewController {
             completion()
         }
     }
+    
+    func showSuccesAlert(message: String, completion: @escaping () -> Void) {
+        SwiftAlertView.show(title: "Succesfull",
+                            message: message,
+                            buttonTitles: ["OK"]).onButtonClicked { _, _ in
+            completion()
+        }
+    }
+    
+    func showAlert(title: String,
+                   message: String? = nil,
+                   completion: @escaping(UIAlertAction.Style) -> Void) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        
+        let yesButton = UIAlertAction(title: "YES", style: .default){ _ in
+            completion(.destructive)
+        }
+    
+        let noButton = UIAlertAction(title: "NO", style: .destructive){ _ in
+            completion(.cancel)
+        }
+        alert.addAction(yesButton)
+        alert.addAction(noButton)
+        present(alert,animated: true)
+       
+    }
+  
+    
 }
