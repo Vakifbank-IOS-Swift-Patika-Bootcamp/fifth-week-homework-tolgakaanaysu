@@ -117,11 +117,11 @@
 		78330BE3292D2F7300153DCC /* App */ = {
 			isa = PBXGroup;
 			children = (
-				78330BD8292D2F5C00153DCC /* Assets.xcassets */,
-				78330BDA292D2F5C00153DCC /* LaunchScreen.storyboard */,
-				78330BD5292D2F5700153DCC /* Main.storyboard */,
 				78330BCF292D2F5700153DCC /* AppDelegate.swift */,
 				78330BD1292D2F5700153DCC /* SceneDelegate.swift */,
+				78330BD5292D2F5700153DCC /* Main.storyboard */,
+				78330BDA292D2F5C00153DCC /* LaunchScreen.storyboard */,
+				78330BD8292D2F5C00153DCC /* Assets.xcassets */,
 				78330BDD292D2F5C00153DCC /* Info.plist */,
 			);
 			path = App;
@@ -135,9 +135,9 @@
 				78561124292FC40F00D01F24 /* CharacterDetailsVC.swift */,
 				785611262930306900D01F24 /* QuotesVC.swift */,
 				7856112C29304D5A00D01F24 /* EpisodesVC.swift */,
-				78330BF1292D6E4100153DCC /* WebViewVC.swift */,
 				783A38E8293408700048F76F /* NotesVC.swift */,
 				783A38F2293415950048F76F /* AddEditNoteVC.swift */,
+				78330BF1292D6E4100153DCC /* WebViewVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

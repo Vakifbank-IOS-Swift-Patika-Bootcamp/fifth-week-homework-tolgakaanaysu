@@ -88,10 +88,10 @@ extension NotesVC: UITableViewDelegate, UITableViewDataSource {
                 guard let self = self else { return }
                 guard let error = error else {
                     self.showSuccesAlert(message: success!.message) {}
+                    self.loadNotes()
                     return
                 }
                 self.showErrorAlert(message: error.message) {}
-                self.loadNotes()
             }
         }
             
