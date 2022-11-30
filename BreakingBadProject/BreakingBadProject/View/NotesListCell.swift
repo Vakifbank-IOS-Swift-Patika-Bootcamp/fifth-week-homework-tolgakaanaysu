@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotesListCell: UITableViewCell {
+final class NotesListCell: UITableViewCell {
 
     @IBOutlet private weak var seasonLabel: UILabel!
     @IBOutlet private weak var episodeLabel: UILabel!
