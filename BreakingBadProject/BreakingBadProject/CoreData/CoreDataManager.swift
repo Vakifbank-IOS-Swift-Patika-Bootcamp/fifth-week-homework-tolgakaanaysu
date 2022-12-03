@@ -25,7 +25,7 @@ final class CoreDataManager {
         noteModel.setValue(episode, forKeyPath: "episode")
         noteModel.setValue(season, forKey: "season")
         noteModel.setValue(text, forKey: "text")
-        noteModel.setValue(UUID(), forKey: "uuid")
+        noteModel.setValue(UUID().uuidString, forKey: "id")
         
         
         do {
