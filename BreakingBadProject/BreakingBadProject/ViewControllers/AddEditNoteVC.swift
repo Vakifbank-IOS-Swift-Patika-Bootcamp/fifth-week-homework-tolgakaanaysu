@@ -96,7 +96,7 @@ final class AddEditNoteVC: BaseViewController {
             }
             
             
-            self.showErrorAlert(message: success.message) { [weak self] in
+            self.showSuccesAlert(message: success.message) { [weak self] in
                 guard let self = self else { return }
                 self.dismiss(animated: true)
             }
