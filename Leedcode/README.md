@@ -1,9 +1,7 @@
 # Leedcode Answers Stats
 
 ## Question 1
-   <img width="390" alt="Ekran Resmi 2022-12-02 00 04 40" src="https://user-images.githubusercontent.com/59265478/205158982-969741aa-c736-4384-be37-b0ce05c474be.png">  <img width="400" alt="Ekran Resmi 2022-12-01 22 34 37" src="https://user-images.githubusercontent.com/59265478/205143976-abff1270-c1c0-4f76-80fa-9d1589e7b6a2.png">  
-
-
+   <img width="390" alt="Ekran Resmi 2022-12-02 00 04 40" src="https://user-images.githubusercontent.com/59265478/205158982-969741aa-c736-4384-be37-b0ce05c474be.png"> <img width="400" alt="205143976-abff1270-c1c0-4f76-80fa-9d1589e7b6a2" src="https://user-images.githubusercontent.com/59265478/205485192-c629373c-86f4-47f6-b3bc-079482ea4fe0.png">
 
 
 
