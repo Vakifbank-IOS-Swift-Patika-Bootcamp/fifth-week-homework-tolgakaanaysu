@@ -21,6 +21,7 @@ protocol AddEditNoteVCDelegate: AnyObject{
 
 final class AddEditNoteVC: BaseViewController {
     //MARK: - IBOutlets
+    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var seasonTextField: UITextField!
     @IBOutlet private weak var episodeTextField: UITextField!
     @IBOutlet private weak var noteTextView: UITextView!
@@ -53,17 +54,20 @@ final class AddEditNoteVC: BaseViewController {
     
     private func configureAsSaveable(){
         editButton.removeFromSuperview()
+        titleLabel.text = "Save Note"
         seasonTextField.text = ""
         episodeTextField.text = ""
         noteTextView.text = ""
     }
     private func configureAsEditable(){
         setUIByNote()
+        titleLabel.text = "Edit Note"
         
     }
     
     private func configureAsPreview(){
         setUIByNote()
+        titleLabel.text = "Preview"
         editButton.removeFromSuperview()
         seasonTextField.isUserInteractionEnabled = false
         episodeTextField.isUserInteractionEnabled = false
@@ -84,27 +88,18 @@ final class AddEditNoteVC: BaseViewController {
               let season = seasonTextField.text,
               let episode = episodeTextField.text else { return }
         
-        
-        // Core data save closure
         CoreDataManager.shared.saveNote(episode: episode, season: season, text: text) { [weak self]  success,error in
             guard let self = self else { return }
             
             guard let success = success else {
-                //show error alert closure
                 self.showErrorAlert(message: error!.message, completion: {})
                 return
             }
+            self.dismiss(animated: true)
+            self.delegate?.reloadNotes()
             
-            
-            self.showSuccesAlert(message: success.message) { [weak self] in
-                guard let self = self else { return }
-                self.dismiss(animated: true)
-            }
-            
-            
+            self.showSuccesAlert(message: success.message, completion: {})
         }
-        delegate?.reloadNotes()
-        self.dismiss(animated: true)
     }
     
     @IBAction func editButtonClicked(_ sender: Any) {
@@ -117,8 +112,16 @@ final class AddEditNoteVC: BaseViewController {
         note.episode = episode
         note.season = season
         
-        CoreDataManager.shared.updateNote(note: note)
-        delegate?.reloadNotes()
-        
+        CoreDataManager.shared.updateNote(model: note) { [weak self] success, error in
+            guard let self = self else { return}
+            guard let success = success else {
+                self.showErrorAlert(message: error!.message, completion: {})
+                return
+            }
+            self.dismiss(animated: true)
+            self.delegate?.reloadNotes()
+            self.showSuccesAlert(message: success.message, completion: {})
+                    
+        }
     }
 }
