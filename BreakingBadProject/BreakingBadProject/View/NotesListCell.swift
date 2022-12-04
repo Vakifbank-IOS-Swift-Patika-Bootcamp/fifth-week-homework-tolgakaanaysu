@@ -13,7 +13,7 @@ final class NotesListCell: UITableViewCell {
     @IBOutlet private weak var episodeLabel: UILabel!
     
     func configure(note: Notes){
-        seasonLabel.text = note.season
-        episodeLabel.text = note.episode
+        seasonLabel.text = "season: " + (note.season ?? "")
+        episodeLabel.text = "episode: " + (note.episode ?? "")
     }
 }
