@@ -25,7 +25,7 @@ final class CoreDataManager {
         noteModel.setValue(episode, forKeyPath: "episode")
         noteModel.setValue(season, forKey: "season")
         noteModel.setValue(text, forKey: "text")
-        noteModel.setValue(UUID(), forKey: "uuid")
+        noteModel.setValue(UUID().uuidString, forKey: "id")
         
         
         do {
@@ -33,8 +33,9 @@ final class CoreDataManager {
             comletion(CoreDataCustomSuccesMessage.saveSuccess,nil)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
+            comletion(nil,CoreDataCustomError.saveError)
         }
-        comletion(CoreDataCustomSuccesMessage.saveSuccess,nil)
+       
     }
     
     func getNotes(completion: @escaping([Notes],CoreDataCustomError?) -> Void ){
@@ -57,21 +58,34 @@ final class CoreDataManager {
             completion(nil,CoreDataCustomSuccesMessage.deleteSucces)
         } catch let error as NSError {
             completion(CoreDataCustomError.deleteError, nil)
-            print("Could not save. \(error), \(error.userInfo)")
+            print("Could not delete. \(error), \(error.userInfo)")
         }
     }
     
-    func insert(model: Notes){
-        let entity = NSEntityDescription.entity(forEntityName: "Notes", in: managedContext)!
-        var noteModel = NSManagedObject(entity: entity, insertInto: managedContext)
-        noteModel = model
-        managedContext.insert(noteModel)
+    
+    func updateNote(model: Notes, completion: @escaping(CoreDataCustomSuccesMessage?,CoreDataCustomError?) -> Void){
+        let fetchNote: NSFetchRequest<Notes> = Notes.fetchRequest()
+         fetchNote.predicate = NSPredicate(format: "id = %@")
+
         
-    }
-    
-    
-    func updateNote(note: Notes){
-        insert(model: note)
+        let notes = try? managedContext.fetch(fetchNote)
+
+        let note = notes?.first
+
+        note?.season = model.season
+        note?.episode = model.episode
+        note?.text = model.text
+
+        do {
+            try managedContext.save()
+            completion(CoreDataCustomSuccesMessage.updateSucces,nil)
+        } catch let error as NSError {
+            completion(nil,CoreDataCustomError.updateError)
+            print("Could not update. \(error), \(error.userInfo)")
+        }
+        
+        
+        
     }
 }
 

@@ -45,7 +45,7 @@ final class NotesVC: BaseViewController {
             guard let self = self else { return }
             
             guard let error = error else {
-                self.notes = notes
+                self.notes = notes.sorted(by: {$0.id! > $1.id!})
                 return
             }
             self.showErrorAlert(message: error.message, completion: {})
@@ -97,7 +97,6 @@ extension NotesVC: UITableViewDelegate, UITableViewDataSource {
             
         let editAction = UIContextualAction(style: .normal, title: "EDİT", handler: { [weak self]_, view,_ in
             guard let self = self else { return }
-            view.backgroundColor = .systemYellow
             self.prepare(note: note, viewType: .edit)
         })
         editAction.backgroundColor = .systemYellow

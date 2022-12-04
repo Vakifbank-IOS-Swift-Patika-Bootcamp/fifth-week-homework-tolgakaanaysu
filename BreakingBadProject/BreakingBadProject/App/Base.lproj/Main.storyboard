@@ -377,28 +377,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Season (1-5)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5m4-z6-ZUd">
-                                <rect key="frame" x="32" y="79" width="326" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Episode (1-10)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRG-s8-cgq">
-                                <rect key="frame" x="32" y="147" width="326" height="36"/>
+                                <rect key="frame" x="32" y="197.66666666666666" width="166.33333333333334" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sxk-hh-mUq">
-                                <rect key="frame" x="32" y="215" width="326" height="495"/>
+                                <rect key="frame" x="32" y="265.66666666666663" width="166.33333333333334" height="409.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-lA-NhN">
-                                <rect key="frame" x="32" y="730" width="314.66666666666669" height="38.666666666666629"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-lA-NhN">
+                                <rect key="frame" x="32" y="739.33333333333337" width="314.66666666666669" height="38.666666666666629"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACp-WZ-Pgp">
-                                        <rect key="frame" x="0.0" y="0.0" width="132.33333333333334" height="38.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="115" height="38.666666666666664"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="ADD">
                                             <fontDescription key="titleFontDescription" name=".SFUI-Semibold" family=".AppleSystemUIFont" pointSize="22"/>
@@ -409,7 +404,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="wCZ-Gd-37A">
-                                        <rect key="frame" x="182.33333333333331" y="0.0" width="132.33333333333331" height="38.666666666666664"/>
+                                        <rect key="frame" x="165" y="0.0" width="149.66666666666663" height="38.666666666666664"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="EDIT">
@@ -417,29 +412,42 @@
                                             <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="addButtonClicked:" destination="UHc-Ne-Gc1" eventType="touchUpInside" id="Nrc-Z0-oLO"/>
                                             <action selector="editButtonClicked:" destination="UHc-Ne-Gc1" eventType="touchUpInside" id="qPv-Oy-wCm"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Season (1-5)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5m4-z6-ZUd">
+                                <rect key="frame" x="32" y="129.66666666666666" width="166.33333333333334" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxV-t4-cPi">
+                                <rect key="frame" x="63.999999999999993" y="63" width="102.33333333333329" height="34.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="O5E-Dz-udr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EQd-lA-NhN" firstAttribute="top" secondItem="sxk-hh-mUq" secondAttribute="bottom" constant="20" id="3cT-0f-H8h"/>
-                            <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="EQd-lA-NhN" secondAttribute="trailing" constant="32" id="5x3-16-kgd"/>
-                            <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="aRG-s8-cgq" secondAttribute="trailing" constant="32" id="7eY-Rr-0nB"/>
-                            <constraint firstItem="EQd-lA-NhN" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="32" id="F0Q-Tr-tAv"/>
-                            <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="sxk-hh-mUq" secondAttribute="trailing" constant="32" id="Gsg-kM-wtk"/>
-                            <constraint firstItem="5m4-z6-ZUd" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="32" id="Kbr-ro-afR"/>
-                            <constraint firstItem="sxk-hh-mUq" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="32" id="OMV-tD-QOG"/>
-                            <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="5m4-z6-ZUd" secondAttribute="trailing" constant="32" id="TOo-BR-7hW"/>
-                            <constraint firstItem="O5E-Dz-udr" firstAttribute="bottom" secondItem="sxk-hh-mUq" secondAttribute="bottom" constant="100" id="ULl-TL-AuB"/>
-                            <constraint firstItem="aRG-s8-cgq" firstAttribute="top" secondItem="5m4-z6-ZUd" secondAttribute="bottom" constant="32" id="XcT-sd-Nvu"/>
-                            <constraint firstItem="aRG-s8-cgq" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="32" id="aX0-5Q-Dxl"/>
-                            <constraint firstItem="sxk-hh-mUq" firstAttribute="top" secondItem="aRG-s8-cgq" secondAttribute="bottom" constant="32" id="mXS-tt-mW3"/>
-                            <constraint firstItem="5m4-z6-ZUd" firstAttribute="top" secondItem="O5E-Dz-udr" secondAttribute="top" constant="32" id="mhZ-hI-OR4"/>
+                            <constraint firstItem="EQd-lA-NhN" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="32" id="0Xq-TW-Uo0"/>
+                            <constraint firstItem="sxk-hh-mUq" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="32" id="3dO-RI-oUL"/>
+                            <constraint firstItem="sxk-hh-mUq" firstAttribute="top" secondItem="aRG-s8-cgq" secondAttribute="bottom" constant="32" id="4zv-vI-dp5"/>
+                            <constraint firstItem="aRG-s8-cgq" firstAttribute="top" secondItem="5m4-z6-ZUd" secondAttribute="bottom" constant="32" id="AQc-MY-Hpt"/>
+                            <constraint firstItem="5m4-z6-ZUd" firstAttribute="top" secondItem="bxV-t4-cPi" secondAttribute="bottom" constant="32" id="DFA-q0-42J"/>
+                            <constraint firstItem="O5E-Dz-udr" firstAttribute="bottom" secondItem="EQd-lA-NhN" secondAttribute="bottom" constant="32" id="Ub5-0q-PGe"/>
+                            <constraint firstItem="bxV-t4-cPi" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="64" id="VOZ-6m-qrQ"/>
+                            <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="bxV-t4-cPi" secondAttribute="trailing" constant="64" id="bhK-zj-6ay"/>
+                            <constraint firstItem="EQd-lA-NhN" firstAttribute="top" secondItem="sxk-hh-mUq" secondAttribute="bottom" constant="64" id="dZF-1s-Urx"/>
+                            <constraint firstItem="aRG-s8-cgq" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="32" id="inA-Ex-vPr"/>
+                            <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="aRG-s8-cgq" secondAttribute="trailing" constant="32" id="jiv-P2-bqx"/>
+                            <constraint firstItem="bxV-t4-cPi" firstAttribute="top" secondItem="O5E-Dz-udr" secondAttribute="top" constant="16" id="lZx-D9-R87"/>
+                            <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="5m4-z6-ZUd" secondAttribute="trailing" constant="32" id="lrv-2t-9lR"/>
+                            <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="EQd-lA-NhN" secondAttribute="trailing" constant="32" id="oEn-bb-RyE"/>
+                            <constraint firstItem="5m4-z6-ZUd" firstAttribute="leading" secondItem="O5E-Dz-udr" secondAttribute="leading" constant="32" id="rxY-Pt-I28"/>
+                            <constraint firstItem="O5E-Dz-udr" firstAttribute="trailing" secondItem="sxk-hh-mUq" secondAttribute="trailing" constant="32" id="saS-7e-u9b"/>
                         </constraints>
                     </view>
                     <connections>
@@ -448,6 +456,7 @@
                         <outlet property="episodeTextField" destination="aRG-s8-cgq" id="eYp-Iy-wds"/>
                         <outlet property="noteTextView" destination="sxk-hh-mUq" id="tHD-XN-NYQ"/>
                         <outlet property="seasonTextField" destination="5m4-z6-ZUd" id="ofz-Cz-qjR"/>
+                        <outlet property="titleLabel" destination="bxV-t4-cPi" id="3od-fc-Wsa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L7z-sP-vYd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
