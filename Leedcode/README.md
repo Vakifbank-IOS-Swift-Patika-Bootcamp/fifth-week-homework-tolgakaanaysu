@@ -36,6 +36,26 @@
             return false
         }
     }
+    
+ ## Question 3
+<img width="420" src="https://user-images.githubusercontent.com/59265478/205485929-71e3d29f-f20c-4683-a046-60800c80a4b2.png"> <img width="400" src="https://user-images.githubusercontent.com/59265478/205485939-48c0180a-66c4-431e-91f0-2c34b69c103f.png">
+
+
+
+    
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+      var result = [Int]()
+       for i in 0..<nums.count {
+           for j in 1..<nums.count {
+               if (nums[i] + nums[j] == target) && (i != j) {
+                   result.append(i)
+                   result.append(j)
+                  return result
+               }
+           }
+       }
+       return result
+   }
    
 
 
